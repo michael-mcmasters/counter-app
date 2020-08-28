@@ -4,13 +4,15 @@ import React, { Component } from "react";
 // (Snippet to create class is cc)
 class Counter extends Component {
   state = {
-    // property //
-    count: 4,
+    // property
+    count: 0,
   };
 
   // Use arrow function so that this will refer to the class, and not be undefined (see notes).
   handleIncrement = () => {
-    console.log("Increment Clicked", this);
+    //this.setState({ count: this.state.count + 1 });
+    this.state.count++;
+    this.setState({ count: this.state.count });
   };
 
   render() {
