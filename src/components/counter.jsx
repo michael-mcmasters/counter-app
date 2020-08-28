@@ -3,24 +3,27 @@ import React, { Component } from "react";
 
 // (Snippet to create class is cc)
 class Counter extends Component {
-  // property
   state = {
-    count: 0,
-    tags: ["tag1", "tag2", "tag3"],
+    // property
+    count: 4,
+  };
+
+  // Use arrow function so that this will refer to the class, and not be undefined (see notes).
+  handleIncrement = () => {
+    console.log("Increment Clicked", this);
   };
 
   render() {
     return (
       <div>
         <span className={this.getBadgeClasses()}>{this.formatCount()}</span>
-        <button className="btn btn-secondary btn-sm">Increment</button>
-        <ul>
-          // "for-loop" to render each item in list. Check notes. Or watch
-          @52:01.
-          {this.state.tags.map((tag) => (
-            <li key={tag}>{tag}</li>
-          ))}
-        </ul>
+        <button
+          // This is an event handler. So pass reference to function instead of calling it
+          onClick={this.handleIncrement}
+          className="btn btn-secondary btn-sm"
+        >
+          Increment
+        </button>
       </div>
     );
   }
