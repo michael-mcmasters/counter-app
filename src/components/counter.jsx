@@ -1,23 +1,24 @@
 // Import React and React Component (snippet is imrc)
 import React, { Component } from "react";
 
-// (Snippet to create class is cc)
+// (Snippet to create class is cc)k
 class Counter extends Component {
   state = {
     // property
-    count: 0,
+    value: this.props.value,
   };
 
   // Use arrow function so that this will refer to the class, and not be undefined (see notes).
   handleIncrement = () => {
-    //this.setState({ count: this.state.count + 1 });
-    this.state.count++;
-    this.setState({ count: this.state.count });
+    this.setState({ value: this.state.value + 1 });
   };
 
   render() {
+    console.log(this.props);
+
     return (
       <div>
+        {this.props.children}
         <span className={this.getBadgeClasses()}>{this.formatCount()}</span>
         <button
           // This is an event handler. So pass reference to function instead of calling it
@@ -36,12 +37,12 @@ class Counter extends Component {
     let classes = "badge m-2 badge-";
 
     // 3rd class is badge-something. Determine if it should be 'warning' or 'primary' and add it to string.
-    classes += this.state.count === 0 ? "warning" : "primary";
+    classes += this.state.value === 0 ? "warning" : "primary";
     return classes;
   }
 
   formatCount() {
-    const { count } = this.state;
+    const { value: count } = this.state;
     return count === 0 ? "Zero" : count;
   }
 }

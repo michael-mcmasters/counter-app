@@ -7,8 +7,7 @@ import App from "./App";
 import * as serviceWorker from "./serviceWorker";
 // Bootstrap: A CSS library that gives our application a modern look and feel.
 import "bootstrap/dist/css/bootstrap.css";
-import Counter from "./components/counter";
+import Counters from "./components/counters";
 
-ReactDOM.render(<Counter />, document.getElementById("root"));
-
+ReactDOM.render(<Counters />, document.getElementById("root"));
 serviceWorker.unregister();
