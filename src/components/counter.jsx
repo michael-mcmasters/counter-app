@@ -4,7 +4,7 @@ import React, { Component } from "react";
 // (Snippet to create class is cc)
 class Counter extends Component {
   state = {
-    // property
+    // property //
     count: 4,
   };
 
