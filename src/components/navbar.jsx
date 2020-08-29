@@ -1,4 +1,4 @@
-// *** Not a stateless function component. This is the regular way of doing it with a class. ***
+// *** Not a stateless functional component. This is the regular way of doing it with a class. ***
 //import React, { Component } from "react";
 
 // class NavBar extends Component {
@@ -26,6 +26,9 @@ import React from "react";
 // props is passed in automarically by React.
 // const NavBar = (props) => {
 // Except we used Objected Destructuring. So props is passed to this function, but we only take in one of its properties, totalCounters.
+// const NavBar = ({ totalCounters }) => {
+
+// Navbar code is copied from Bootstrap. From this link under Brand. https://getbootstrap.com/docs/4.5/components/navbar/
 const NavBar = ({ totalCounters }) => {
   return (
     <nav className="navbar navbar-light bg-light">

@@ -5,7 +5,6 @@ import Counter from "./counter";
 // This Line: const { onReset, counters, onDelete, onIncrement } = this.props;
 // With that line, we can use {onDelete} instead of {this.props.onDelete}.
 // It basically takes the properties out of an object, so that we don't have to say this.object over and over again (where in this case, props is the object).
-
 class Counters extends Component {
   render() {
     const { onReset, counters, onDelete, onIncrement } = this.props;
