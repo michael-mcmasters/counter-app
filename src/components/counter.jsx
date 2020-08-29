@@ -1,16 +1,22 @@
-// Import React and React Component (snippet is imrc)
 import React, { Component } from "react";
 
-// (Snippet to create class is cc)k
 class Counter extends Component {
-  // Use arrow function so that this will refer to the class, and not be undefined (see notes).
-  handleIncrement = () => {
-    this.setState({ value: this.state.value + 1 });
-  };
+  // Called during update hook (when compoent or a variable in its props changes)
+  componentDidUpdate(prevProps, prevState) {
+    console.log("prevProps", prevProps);
+    console.log("prevState", prevState);
+    if (prevProps.counter.value !== this.props.counter.value) {
+      // Can do an Ajax call to get new data from the server.
+      // This condition is just an example.
+    }
+  }
+
+  // Called right before component unmounts (when class instance is destroyed)
+  componentWillUnmount() {
+    console.log("Counter - Unmount");
+  }
 
   render() {
-    console.log(this.props);
-
     return (
       <div>
         {this.props.children}
