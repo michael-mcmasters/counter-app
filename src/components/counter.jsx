@@ -3,12 +3,6 @@ import React, { Component } from "react";
 
 // (Snippet to create class is cc)k
 class Counter extends Component {
-  // This is only called once when instance of this component is created (so like Start()).
-  state = {
-    // property
-    value: this.props.counter.value,
-  };
-
   // Use arrow function so that this will refer to the class, and not be undefined (see notes).
   handleIncrement = () => {
     this.setState({ value: this.state.value + 1 });
@@ -22,7 +16,7 @@ class Counter extends Component {
         {this.props.children}
         <span className={this.getBadgeClasses()}>{this.formatCount()}</span>
         <button
-          onClick={this.handleIncrement}
+          onClick={() => this.props.onIncrement(this.props.counter)}
           className="btn btn-secondary btn-sm"
         >
           Increment
@@ -44,13 +38,14 @@ class Counter extends Component {
     let classes = "badge m-2 badge-";
 
     // 3rd class is badge-something. Determine if it should be 'warning' or 'primary' and add it to string.
-    classes += this.state.value === 0 ? "warning" : "primary";
+    classes += this.props.counter.value === 0 ? "warning" : "primary";
     return classes;
   }
 
   formatCount() {
-    const { value: count } = this.state;
-    return count === 0 ? "Zero" : count;
+    // Object destructuring. Gets value property out of counter I think?
+    const { value } = this.props.counter;
+    return value === 0 ? "Zero" : value;
   }
 }
 

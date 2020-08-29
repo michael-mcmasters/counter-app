@@ -7,7 +7,7 @@ import App from "./App";
 import * as serviceWorker from "./serviceWorker";
 // Bootstrap: A CSS library that gives our application a modern look and feel.
 import "bootstrap/dist/css/bootstrap.css";
-import Counters from "./components/counters";
 
-ReactDOM.render(<Counters />, document.getElementById("root"));
+// Putting <App /> here makes App.js run. You can do the same for jsx files.
+ReactDOM.render(<App />, document.getElementById("root"));
 serviceWorker.unregister();
