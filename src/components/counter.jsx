@@ -3,9 +3,10 @@ import React, { Component } from "react";
 
 // (Snippet to create class is cc)k
 class Counter extends Component {
+  // This is only called once when instance of this component is created (so like Start()).
   state = {
     // property
-    value: this.props.value,
+    value: this.props.counter.value,
   };
 
   // Use arrow function so that this will refer to the class, and not be undefined (see notes).
@@ -21,15 +22,21 @@ class Counter extends Component {
         {this.props.children}
         <span className={this.getBadgeClasses()}>{this.formatCount()}</span>
         <button
-          // This is an event handler. So pass reference to function instead of calling it
           onClick={this.handleIncrement}
           className="btn btn-secondary btn-sm"
         >
           Increment
         </button>
+        <button
+          onClick={() => this.props.onDelete(this.props.counter.id)}
+          className="btn btn-danger btn-sm m-2"
+        >
+          Delete
+        </button>
       </div>
     );
   }
+  // btn-danger to make red. btn-sm to make small. m-2 to add a margin of two (spacing from edge of page).
 
   // There are 3 classes, badge, m-2, and (badge-warning or badge-primary).
   // warning makes background orange. primary makes background blue. Function determines and returns which to use.
