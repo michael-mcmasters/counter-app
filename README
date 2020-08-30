@@ -1,7 +1,5 @@
-https://www.youtube.com/watch?v=W6NZfCO5SIk
-Also: https://www.youtube.com/watch?v=dGcsHMXbSOA
-CodeAcademy: GeneralMotersToolKit@gmail.com
-View web page: http://localhost:3000/
+Youtube video that @ timestamps are referencing: https://www.youtube.com/watch?v=W6NZfCO5SIk
+Your local web page: http://localhost:3000/
 
 // Other tidbits
 - React is more popular than Angular and Vue (way more jobs avaible). All three are for front-end development and communicate with Node.js, which is back-end.
@@ -35,7 +33,7 @@ http://localhost:3000/
 
 
 
-// *** Javascript ***
+// *** Pure Javascript ***      (.jsx notes are at bottom of file)
 
 // Import React (in index.js)
 // (React is an object imported from the 'react' module. It is needed to compile jsx into Javascript.)
@@ -267,20 +265,19 @@ typeof myVariable
 
 // *** React ***
 
-TLDR: index.html calls index.js which calls counter.jsx.
--------
-// index.html
-- Calls index.js with <div id="root"></div>.
--------
-// index.js
-- Calls index.css (by importing bootstrap?)
-- Calls counter.jsx by importing it.
-- Imports React to convert jsx into javascript.
-- Imports ReactDOM to send jsx code to virtual DOM and real DOM.
--------
-//counter.jsx
-- Imports React and React Component
-- Is a class that inherits from component. Returns how it renders.
+// Folders installed when projected started
+// src is where most of our files are going to be located. Convention is to create a subfolder in here named "components" for our components.
+// node-modules: Where frameworks/packages are installed (such as Bootsrap and Babble).
+// We never really need to interact with this folder.
+// package-lock.json: Basically manifest.json in Unity. It holds the package dependencies and their versions.
+// package.json: Holds scripts that run when using terminal commands like npm start or npm build. Also holds React version dependencies.
+// .gitignore: You know this one, but it's important to know that it ignores the node_modules folder. Because creating/cloning a React project should download those automatically.
+
+// Hierarchy
+// Hierarchy in backwards order: sub component -> parent component -> app.js -> index.js -> index.html.
+// app.js: The main parent component that holds all of our components and their child components. They all report back to here.
+// index.js: imports app.js, takes all of its components, compiles and converts their .jsx code to regular HTML and pure Javascript. Then sends it to index.html with document.getElementByID('root').
+// index.html: Takes all code that was converted to html and puts it under a single <div> ... <div id="root"></div> ... Our entire website is under this <div>.
 
 - Component: A React app is made up of components. Each component is a Javascript class which has a state and a render method.
 - State: The data we want to show when the component is rendered.
@@ -321,11 +318,28 @@ The NavBar came from Bootstrap. At this URL under Brand https://getbootstrap.com
 // Second smaller header
 <h2>
 
+// Even smaller header
+<h3>
+
 // Unordered (bulleted) list
 <ul>
 
 // Button
 <button>
+
+// CSS Styling
+// Say we have a js component named tweet.js.
+// in App.cs, at the bottom of the page, create a class with the same name.
+.tweet {
+  border: 2px solid black;
+}
+// (I assume if the js tweet class is in a folder, you have to type something like .components/tweet {} but I'm not sure).
+// To apply the styling, go to tweet.js and import the .css file
+import "./App.css";
+// then apply it in the necessary carrots <>
+<div className="tweet"></div>
+// Note: index.js has its own .css file, index.css.
+// I'm not completely sure but I think the rest of our classes can go into App.css because it holds those classes as a continer (via importing).
 
 // Hooks
 // Functions automatically called by React if you write them (like Start() and Awake in Monobehaviour)

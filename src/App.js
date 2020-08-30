@@ -61,6 +61,9 @@ class App extends Component {
     this.setState({ counters });
   };
 
+  // Note that here we still don't call the functions with (), because if we did they would be called every time render() is called.
+  // Instead we pass a reference and let React call them. So use this.state.counters instead of this.state.counters().
+
   // Use <React.Fragment> because we are returning multiple root elements (<NavBar> and <main> are examples of root elements).
   render() {
     console.log("app - rendered");
