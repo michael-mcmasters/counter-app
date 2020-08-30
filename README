@@ -4,7 +4,6 @@ CodeAcademy: GeneralMotersToolKit@gmail.com
 View web page: http://localhost:3000/
 
 // Other tidbits
-
 - React is more popular than Angular and Vue (way more jobs avaible). All three are for front-end development and communicate with Node.js, which is back-end.
 - The default value type for variables is undefined, not null.
 - Functions are objects. And have their own methods they can call. MyFunction.MyMethod().
@@ -12,7 +11,8 @@ View web page: http://localhost:3000/
 - C# is a static language. Javascript is a dynamic language. Dynamic means variable types can change to another type at run-time (a string can change into a number).
 - If there is no statement after return on the same line, javascript will automatically assume there is a semicolon there and the code on the next line will not run. To change this, you need to add parentheses, put the code inside, and then add a semicolon after the last parenthesis. (Think C# tuples.) The Prettier extension does this automatically if you put <div></div> around two html codes. It's also a good idea to change div to <React.Fragment></React.Fragment>.
 
-// **_ Terminal Commands _**
+
+// *** Terminal Commands ***
 // If terminal won't let you make commands (because it is set to a Node teriminal), just do control + shift + ` to reset it and open a regular terminal.
 
 // Create React Project
@@ -29,7 +29,13 @@ npm start
 // If it says something is already running at port 3000, press n (for no) and go to that url
 http://localhost:3000/
 
-// **_ Javascript _**
+
+
+
+
+
+
+// *** Javascript ***
 
 // Import React (in index.js)
 // (React is an object imported from the 'react' module. It is needed to compile jsx into Javascript.)
@@ -61,9 +67,7 @@ myfunction()
 // It will return undefined (if javascript strict mode is enabled (on by default for React))
 // Or will return window (if strict mode is off).
 // This is true even if function is inside of a class.
-
----
-
+-------
 // How to fix? Arrow functions.
 // When an arrow function is called, 'this' isn't rebinded to the object being called. It is inherited from what is calling the function.
 // It's as simple as changing the function from this
@@ -116,7 +120,6 @@ console.log();
 
 // Run a Javascript class
 // In a .html document, add <script></script>. And then put src=(name of Javascript class) in the first carrots.
-
 <script src="index.js"></script>
 
 // Declare variable local to block (same way var keyword works in C#) (best practice)
@@ -134,7 +137,7 @@ window.name;
 // prints "Michael"
 
 // Declare global variable as an object
-let myNumber = function(width, height) { return width \* height; }
+let myNumber = function(width, height) { return width * height; }
 // Now function is a method inside of the object, myNumber. And can be called with
 myNumber(width, height);
 // Source example: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/function.
@@ -162,8 +165,8 @@ const name = "Michael";
 // Declare object
 // (variables inside are called properties (name and age).)
 let person = {
-name: "Michael",
-age: 30
+	name: "Michael",
+	age: 30
 };
 
 // Redefine an object's property (dot notation)
@@ -173,7 +176,7 @@ person["name"] = "Petah";
 
 // Create function
 function greet(name, lastName) {
-console.log("Hello " + name + " " + lastName);
+	console.log("Hello " + name + " " + lastName);
 }
 // All functions in Javascript are objects. Because they're objects, they can also have methods inside of them.
 // For example, all functions have a default method such as this one.
@@ -182,7 +185,7 @@ greet.bind().
 
 // Create function with return type
 function square(number) {
-return number \* number;
+	return number * number;
 }
 
 // Call a function
@@ -195,7 +198,7 @@ greet("Jon");
 
 // === Operator
 // Mean of equal value and equal type
-x === 5 // prints true
+x === 5   // prints true
 x === "5" // prints false
 // !== operator is the opposite.
 
@@ -203,25 +206,45 @@ x === "5" // prints false
 // Strings and numbers can be used in conditions. When true they are truthy, and when false, they are falsey.
 // Strings are only falsey if they have 0 characters.
 // Numbers are only falsey if they are equal to 0.
-true && false // returns false
-true && 'hi' // returns 'hi' (true)
+true && false     // returns false
+true && 'hi'      // returns 'hi' (true)
 true && 'hi' && 1 // returns 1 (true)
-true && 0 // returns 0 (false)
-true and '' // returns '' (false)
-
----
-
+true && 0         // returns 0 (false)
+true and ''       // returns '' (false)
+-------
 // You can use this code for Conditional Rendering (jsx).
 // Here, "My Text" will only show if myArray has a length of 0.
-
 <div> {this.myArray.length === 0 && "My Text"} </div>
 
-// **_ Node.js _**
 
+
+
+
+
+
+
+
+
+
+
+
+// *** Node.js ***
 - Node.js: Javascript was meant to only run in browsers. Browsers have their own engines to run it (Chrome has v8, Firefox has SpiderMonkey). Node.js is a wrapper that takes the v8 engine out of the browser, and allows you to run applications anywhere with Javascript.
 - NPM (Node Package Manager): Node.js allows you to install 3rd party libraries.
 
-// **_ Browser Console _**
+
+
+
+
+
+
+
+
+
+
+
+
+// *** Browser Console ***
 
 // typeof
 typeof myVariable
@@ -232,27 +255,30 @@ typeof myVariable
 // Right click, inspect element, up top where it says "elements, console, sources" etc.
 // Click the two right arrows and click components. Now you can view your React components.
 
-// **_ React _**
 
-## TLDR: index.html calls index.js which calls counter.jsx.
 
+
+
+
+
+
+
+
+
+// *** React ***
+
+TLDR: index.html calls index.js which calls counter.jsx.
+-------
 // index.html
-
 - Calls index.js with <div id="root"></div>.
-
----
-
+-------
 // index.js
-
 - Calls index.css (by importing bootstrap?)
 - Calls counter.jsx by importing it.
 - Imports React to convert jsx into javascript.
 - Imports ReactDOM to send jsx code to virtual DOM and real DOM.
-
----
-
+-------
 //counter.jsx
-
 - Imports React and React Component
 - Is a class that inherits from component. Returns how it renders.
 
@@ -263,20 +289,39 @@ typeof myVariable
 - jsx: A weird syntax of Javascript and XML.
 - Babble: Compiles jsx code to Javascript so the browser can understand it.
 - Bootstrap: A CSS library that gives our application a modern look and feel:
-  The NavBar came from Bootstrap. At this URL under Brand https://getbootstrap.com/docs/4.5/components/navbar/
+The NavBar came from Bootstrap. At this URL under Brand https://getbootstrap.com/docs/4.5/components/navbar/
 
-// **_ jsx / HTML / CSS _**
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// *** jsx / HTML / CSS ***
 
 // Main header
-
 <h1>
 
 // Second smaller header
-
 <h2>
 
 // Unordered (bulleted) list
-
 <ul>
 
 // Button
@@ -289,7 +334,7 @@ typeof myVariable
 // Mount: When an instance of a component is created and it is added to the DOM for the first time.
 // constructor(), render() (all children components are rendered here too), componentDidMount().
 //
-// Update: When the state or the props of the component are changed.
+// Update: When the state or the props of the component are changed. 
 // render(), componentDidUpdate().
 //
 // Unmount: When a component is removed from the DOM (such as when destroying an instance of a class).
@@ -342,7 +387,6 @@ functionName = myVariable => { }
 // Source: @1:13:03
 
 // When you write html in jsx, it converts to pure Javascript. Meaning that
-
 <li>Jake</li>
 // turns into
 React.createElement('li', null, 'Jake');
@@ -365,16 +409,16 @@ React.createElement('li', null, 'Jake');
 // Apply styling using attributes (with an object)
 // First create the property/object
 styles = {
-fontSize: 10
-fontWeight: 'bold'
+	fontSize: 10
+	fontWeight: 'bold'
 };
 // Then apply the object to the text
 <span style={this.styles}>MyText</span>
 
 // Apply styling using attributes (with an object's property)
 state = {
-count: 0,
-imageUrl: "https://picsum.photos/200"
+	count: 0,
+	imageUrl: "https://picsum.photos/200"
 };
 <img src={this.state.imageUrl} alt="" />
 
@@ -382,13 +426,14 @@ imageUrl: "https://picsum.photos/200"
 // (fontSize seems to be a property inside an anonymous object. If that's even a thing. Make sure to put brackets inside of the brackets for this to work.)
 <span style={{ fontSize: 30 }}>MyText</span>
 
+
 // DOM Event (React event. React attribute)
 // onClick is a DOM event.
 <button onClick={}></button>
 
+
 // For-Loop
 // jsx doesn't have for-loops. So we do it in this "hacky" way.
-
 <ul>{this.arrayValues.map(arrayValue => <li>{arrayValue}</li>)}</ul>
 // arrayValues.map() iterates over arrayValues and creates a new array with the same values.
 // Kind of like doing for (i < arrayValues.Length){ newArray = arrayValues[i]; }
@@ -400,21 +445,19 @@ imageUrl: "https://picsum.photos/200"
 -------
 // This article explains it better: https://thinkster.io/tutorials/iterating-and-rendering-loops-in-react ... Or watch at 52.01: https://www.youtube.com/watch?v=Ke90Tje7VS0&t=981s.
 
+
 // If Conditions (Conditional Rendering)
 // Strings and numbers can be used in conditions. When true they are truthy, and when false, they are falsey.
 // Strings are only falsey if they have 0 characters.
 // Numbers are only falsey if they are equal to 0.
-true && false // returns false
-true && 'hi' // returns 'hi' (true)
+true && false     // returns false
+true && 'hi'      // returns 'hi' (true)
 true && 'hi' && 1 // returns 1 (true)
-true && 0 // returns 0 (false)
-true and '' // returns '' (false)
-
----
-
+true && 0         // returns 0 (false)
+true and ''       // returns '' (false)
+-------
 // You can use this code for Conditional Rendering (jsx).
 // Here, "My Text" will only show if myArray has a length of 0.
-
 <div> {this.myArray.length === 0 && "My Text"} </div>
 
 // State()
@@ -471,3 +514,11 @@ this.props.children
 // Difference between Props and State
 // State is local to the component. "Parent" class and classes under the compnent can not access its state.
 // Props are for the component to access data from the "parent" class. Props are read only.
+
+
+
+
+
+
+
+
